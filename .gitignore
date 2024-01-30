@@ -1,0 +1,15 @@
+/.settings
+/target
+/.classpath
+/.springBeans
+/.project
+/src/main/resources/config/local/*.properties
+# /src/test/java/webdriver/local/*.java
+/logs/
+/*.iml
+/.idea
+/*.pid
+/mvnw*
+/.mvn/
+application-local.yml
+application-processor-local.yml
