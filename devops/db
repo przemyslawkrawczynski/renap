@@ -1,0 +1,1 @@
+docker run -p 0.0.0.0:2525:3306 --name renap -e MYSQL_USER=renap -e MYSQL_PASSWORD=password -e MYSQL_ROOT_PASSWORD=QWEasd123! -e MYSQL_DATABASE=renap -d mysql:8.0.32
