@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Renap - komfortowe zarzadzanie kontaktem z inwestorem</title>
+    <link rel="stylesheet" th:href="@{/css/custom.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="navbar navbar-expand-sm">
+        <a class="navbar-brand" href="#">
+            <img th:src="@{/img/logo-renap2.png}">
+        </a>
+        <ul class="navbar-nav nav-pills nav-fill">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Klienci</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Oferty</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Usługi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled">Kalendarz</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="top-summary">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <div class="measurements-summary-title">
+                    <span class="measurements-summary-title-text"><b>Klienci</b></span>
+                </div>
+                <div class="room-measurements-summary">
+                    <div class="measurements-summary">
+                        <span>Otwarte budowy</span>
+                        <span class="badge bg-secondary">15</span>
+                    </div>
+                </div>
+                <div class="room-measurements-summary">
+                    <div class="measurements-summary">
+                        <span>Zaofertowani</span>
+                        <span class="badge bg-secondary">18</span>
+                    </div>
+                </div>
+                <div class="room-measurements-summary">
+                    <div class="measurements-summary">
+                        <span>Zrealizowne inwestycje</span>
+                        <span class="badge bg-secondary">230</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="page-title">
+        <p class="h6">LISTA INWESTORÓW</p>
+    </div>
+    <div class="m-2">
+        <a href="clients/add"><button class="btn btn-outline-warning btn-sm">Nowy klient</button></a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="room-list">
+        <table class="table align-middle mb-0 bg-white table-sm table-text">
+            <thead class="bg-light">
+            <tr>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Miasto</th>
+                <th>Ulica</th>
+                <th>Telefon</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${clients.empty}">
+                <td colspan="5">Nie posiadasz aktywnych klientów</td>
+            </tr>
+            <tr th:each="client : ${clients}">
+                <td>
+                    <span class="text text-sm-right mb-0" th:text="${client.getClientName()}"></span>
+                </td>
+                <td>
+                    <span class="text text-sm-right mb-0" th:text="${client.getClientSurname()}"></span>
+                </td>
+                <td>
+                    <span class="text text-sm-right mb-0" th:text="${client.getCity()}"></span>
+                </td>
+                <td>
+                    <span class="text text-sm-right mb-0" th:text="${client.getStreet()}"></span>
+                </td>
+                <td>
+                    <span class="badge bg-success rounded-pill d-inline" th:text="${client.getPhoneNumber()}"></span>
+                </td>
+                <td>
+                    <span class="badge bg-danger d-inline">Edytuj</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>

@@ -10,8 +10,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+
 
 import java.util.Collection;
 
@@ -21,7 +20,7 @@ import java.util.Collection;
 @Builder(setterPrefix = "with")
 @NoArgsConstructor
 @AllArgsConstructor
-public class User implements UserDetails {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,27 +33,23 @@ public class User implements UserDetails {
     private boolean isAccountNonExpired;
     private boolean isCredentialsNonExpired;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    public Collection<?> getAuthorities() {
         return null;
     }
 
-    @Override
     public boolean isAccountNonExpired() {
         return this.isAccountNonExpired;
     }
 
-    @Override
     public boolean isAccountNonLocked() {
         return this.isAccountNonExpired;
     }
 
-    @Override
+
     public boolean isCredentialsNonExpired() {
         return this.isCredentialsNonExpired;
     }
 
-    @Override
     public boolean isEnabled() {
         return this.isEnabled;
     }
